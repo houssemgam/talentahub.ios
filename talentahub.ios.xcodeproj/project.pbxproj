@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AED181212B165339008E8569 /* talentahub_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED181202B165339008E8569 /* talentahub_iosApp.swift */; };
+		AED181232B165339008E8569 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED181222B165339008E8569 /* ContentView.swift */; };
+		AED181252B165339008E8569 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED181242B165339008E8569 /* Item.swift */; };
+		AED181272B16533A008E8569 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AED181262B16533A008E8569 /* Assets.xcassets */; };
+		AED1812A2B16533A008E8569 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AED181292B16533A008E8569 /* Preview Assets.xcassets */; };
+		AED181342B16533A008E8569 /* talentahub_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED181332B16533A008E8569 /* talentahub_iosTests.swift */; };
+		AED1813E2B16533A008E8569 /* talentahub_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED1813D2B16533A008E8569 /* talentahub_iosUITests.swift */; };
+		AED181402B16533A008E8569 /* talentahub_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED1813F2B16533A008E8569 /* talentahub_iosUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AED181302B16533A008E8569 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AED181152B165339008E8569 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AED1811C2B165339008E8569;
+			remoteInfo = talentahub.ios;
+		};
+		AED1813A2B16533A008E8569 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AED181152B165339008E8569 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AED1811C2B165339008E8569;
+			remoteInfo = talentahub.ios;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AED1811D2B165339008E8569 /* talentahub.ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talentahub.ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AED181202B165339008E8569 /* talentahub_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talentahub_iosApp.swift; sourceTree = "<group>"; };
+		AED181222B165339008E8569 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AED181242B165339008E8569 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		AED181262B16533A008E8569 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AED181292B16533A008E8569 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AED1812F2B16533A008E8569 /* talentahub.iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = talentahub.iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AED181332B16533A008E8569 /* talentahub_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talentahub_iosTests.swift; sourceTree = "<group>"; };
+		AED181392B16533A008E8569 /* talentahub.iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = talentahub.iosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AED1813D2B16533A008E8569 /* talentahub_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talentahub_iosUITests.swift; sourceTree = "<group>"; };
+		AED1813F2B16533A008E8569 /* talentahub_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talentahub_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AED1811A2B165339008E8569 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AED1812C2B16533A008E8569 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AED181362B16533A008E8569 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AED181142B165339008E8569 = {
+			isa = PBXGroup;
+			children = (
+				AED1811F2B165339008E8569 /* talentahub.ios */,
+				AED181322B16533A008E8569 /* talentahub.iosTests */,
+				AED1813C2B16533A008E8569 /* talentahub.iosUITests */,
+				AED1811E2B165339008E8569 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AED1811E2B165339008E8569 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AED1811D2B165339008E8569 /* talentahub.ios.app */,
+				AED1812F2B16533A008E8569 /* talentahub.iosTests.xctest */,
+				AED181392B16533A008E8569 /* talentahub.iosUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AED1811F2B165339008E8569 /* talentahub.ios */ = {
+			isa = PBXGroup;
+			children = (
+				AED181202B165339008E8569 /* talentahub_iosApp.swift */,
+				AED181222B165339008E8569 /* ContentView.swift */,
+				AED181242B165339008E8569 /* Item.swift */,
+				AED181262B16533A008E8569 /* Assets.xcassets */,
+				AED181282B16533A008E8569 /* Preview Content */,
+			);
+			path = talentahub.ios;
+			sourceTree = "<group>";
+		};
+		AED181282B16533A008E8569 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				AED181292B16533A008E8569 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AED181322B16533A008E8569 /* talentahub.iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				AED181332B16533A008E8569 /* talentahub_iosTests.swift */,
+			);
+			path = talentahub.iosTests;
+			sourceTree = "<group>";
+		};
+		AED1813C2B16533A008E8569 /* talentahub.iosUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AED1813D2B16533A008E8569 /* talentahub_iosUITests.swift */,
+				AED1813F2B16533A008E8569 /* talentahub_iosUITestsLaunchTests.swift */,
+			);
+			path = talentahub.iosUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AED1811C2B165339008E8569 /* talentahub.ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AED181432B16533A008E8569 /* Build configuration list for PBXNativeTarget "talentahub.ios" */;
+			buildPhases = (
+				AED181192B165339008E8569 /* Sources */,
+				AED1811A2B165339008E8569 /* Frameworks */,
+				AED1811B2B165339008E8569 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = talentahub.ios;
+			productName = talentahub.ios;
+			productReference = AED1811D2B165339008E8569 /* talentahub.ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AED1812E2B16533A008E8569 /* talentahub.iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AED181462B16533A008E8569 /* Build configuration list for PBXNativeTarget "talentahub.iosTests" */;
+			buildPhases = (
+				AED1812B2B16533A008E8569 /* Sources */,
+				AED1812C2B16533A008E8569 /* Frameworks */,
+				AED1812D2B16533A008E8569 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AED181312B16533A008E8569 /* PBXTargetDependency */,
+			);
+			name = talentahub.iosTests;
+			productName = talentahub.iosTests;
+			productReference = AED1812F2B16533A008E8569 /* talentahub.iosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AED181382B16533A008E8569 /* talentahub.iosUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AED181492B16533A008E8569 /* Build configuration list for PBXNativeTarget "talentahub.iosUITests" */;
+			buildPhases = (
+				AED181352B16533A008E8569 /* Sources */,
+				AED181362B16533A008E8569 /* Frameworks */,
+				AED181372B16533A008E8569 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AED1813B2B16533A008E8569 /* PBXTargetDependency */,
+			);
+			name = talentahub.iosUITests;
+			productName = talentahub.iosUITests;
+			productReference = AED181392B16533A008E8569 /* talentahub.iosUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AED181152B165339008E8569 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					AED1811C2B165339008E8569 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					AED1812E2B16533A008E8569 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = AED1811C2B165339008E8569;
+					};
+					AED181382B16533A008E8569 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = AED1811C2B165339008E8569;
+					};
+				};
+			};
+			buildConfigurationList = AED181182B165339008E8569 /* Build configuration list for PBXProject "talentahub.ios" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AED181142B165339008E8569;
+			productRefGroup = AED1811E2B165339008E8569 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AED1811C2B165339008E8569 /* talentahub.ios */,
+				AED1812E2B16533A008E8569 /* talentahub.iosTests */,
+				AED181382B16533A008E8569 /* talentahub.iosUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AED1811B2B165339008E8569 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AED1812A2B16533A008E8569 /* Preview Assets.xcassets in Resources */,
+				AED181272B16533A008E8569 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AED1812D2B16533A008E8569 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AED181372B16533A008E8569 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AED181192B165339008E8569 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AED181232B165339008E8569 /* ContentView.swift in Sources */,
+				AED181252B165339008E8569 /* Item.swift in Sources */,
+				AED181212B165339008E8569 /* talentahub_iosApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AED1812B2B16533A008E8569 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AED181342B16533A008E8569 /* talentahub_iosTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AED181352B16533A008E8569 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AED181402B16533A008E8569 /* talentahub_iosUITestsLaunchTests.swift in Sources */,
+				AED1813E2B16533A008E8569 /* talentahub_iosUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AED181312B16533A008E8569 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AED1811C2B165339008E8569 /* talentahub.ios */;
+			targetProxy = AED181302B16533A008E8569 /* PBXContainerItemProxy */;
+		};
+		AED1813B2B16533A008E8569 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AED1811C2B165339008E8569 /* talentahub.ios */;
+			targetProxy = AED1813A2B16533A008E8569 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		AED181412B16533A008E8569 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AED181422B16533A008E8569 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AED181442B16533A008E8569 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"talentahub.ios/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "esprit.tn.talentahub-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AED181452B16533A008E8569 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"talentahub.ios/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "esprit.tn.talentahub-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AED181472B16533A008E8569 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "esprit.tn.talentahub-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/talentahub.ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/talentahub.ios";
+			};
+			name = Debug;
+		};
+		AED181482B16533A008E8569 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "esprit.tn.talentahub-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/talentahub.ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/talentahub.ios";
+			};
+			name = Release;
+		};
+		AED1814A2B16533A008E8569 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "esprit.tn.talentahub-iosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = talentahub.ios;
+			};
+			name = Debug;
+		};
+		AED1814B2B16533A008E8569 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "esprit.tn.talentahub-iosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = talentahub.ios;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AED181182B165339008E8569 /* Build configuration list for PBXProject "talentahub.ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AED181412B16533A008E8569 /* Debug */,
+				AED181422B16533A008E8569 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AED181432B16533A008E8569 /* Build configuration list for PBXNativeTarget "talentahub.ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AED181442B16533A008E8569 /* Debug */,
+				AED181452B16533A008E8569 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AED181462B16533A008E8569 /* Build configuration list for PBXNativeTarget "talentahub.iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AED181472B16533A008E8569 /* Debug */,
+				AED181482B16533A008E8569 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AED181492B16533A008E8569 /* Build configuration list for PBXNativeTarget "talentahub.iosUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AED1814A2B16533A008E8569 /* Debug */,
+				AED1814B2B16533A008E8569 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AED181152B165339008E8569 /* Project object */;
+}
