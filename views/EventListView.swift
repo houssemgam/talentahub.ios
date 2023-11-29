@@ -11,12 +11,12 @@ struct EventList: Identifiable {
 
 struct EventListView: View {
     let events: [EventList] = [
-        EventList(name: "Concert", date: Date(), description: "Join us for an amazing concert with your favorite artists.", location: "City A", image: Image("concert_image")),
-        EventList(name: "Sports Tournament", date: Date(), description: "Cheer on your favorite teams and athletes in an exciting sports tournament.", location: "City B", image: Image("sports_image")),
-        EventList(name: "Art Exhibition", date: Date(), description: "Explore a diverse collection of artwork from talented artists.", location: "City C", image: Image("art_image")),
-        EventList(name: "Jazz Festival", date: Date(), description: "Immerse yourself in the smooth tunes of jazz at our annual festival.", location: "City D", image: Image("jazz_image"))
+        EventList(name: "Concert", date: Date(), description: "Join us for an amazing concert with your favorite artists.", location: "City A", image: Image("dj")),
+        EventList(name: "Sports Tournament", date: Date(), description: "Cheer on your favorite teams and athletes in an exciting sports tournament.", location: "City B", image: Image("sport")),
+        EventList(name: "Art Exhibition", date: Date(), description: "Explore a diverse collection of artwork from talented artists.", location: "City C", image: Image("art")),
+        EventList(name: "Jazz Festival", date: Date(), description: "Immerse yourself in the smooth tunes of jazz at our annual festival.", location: "City D", image: Image("jazz"))
     ]
-    
+
     @State private var isAddingEvent = false
 
     var body: some View {
@@ -24,28 +24,12 @@ struct EventListView: View {
             VStack {
                 List(events) { event in
                     NavigationLink(destination: EventDetailView(event: event)) {
-                        HStack {
-                            event.image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 100, height: 100)
-                                .cornerRadius(8)
-                            
-                            VStack(alignment: .leading) {
-                                Text(event.name)
-                                    .font(.headline)
-                                Text(event.date.description)
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
-                                Text(event.location)
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
-                            }
-                        }
+                        EventListItemView(event: event)
                     }
                 }
                 .navigationTitle("Events")
-                
+                .listStyle(InsetGroupedListStyle())
+
                 Button(action: {
                     isAddingEvent = true
                 }) {
@@ -57,7 +41,6 @@ struct EventListView: View {
                         .padding()
                 }
                 .sheet(isPresented: $isAddingEvent) {
-                    // Présenter une nouvelle vue pour ajouter des événements
                     AddEventView()
                 }
             }
@@ -65,27 +48,64 @@ struct EventListView: View {
     }
 }
 
+struct EventListItemView: View {
+    let event: EventList
+
+    var body: some View {
+        HStack {
+            event.image
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 100, height: 100)
+                .cornerRadius(8)
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(event.name)
+                    .font(.headline)
+                Text(event.date, style: .date)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                Text(event.location)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
+        }
+        .padding(.vertical, 8)
+    }
+}
+
 struct EventDetailView: View {
     let event: EventList
-    
+
     var body: some View {
-        VStack {
-            Text(event.name)
-                .font(.title)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 16) {
+                event.image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .cornerRadius(12)
+
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(event.name)
+                        .font(.title)
+                        .fontWeight(.bold)
+
+                    Text(event.date, style: .date)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+
+                    Text(event.location)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+
+                    Text(event.description)
+                        .font(.body)
+                }
                 .padding()
-            
-            Text("Date: \(event.date.description)")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-            
-            Text("Location: \(event.location)")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-            
-            Text(event.description)
-                .padding()
-            
-            Spacer()
+                .background(Color(.systemBackground))
+                .cornerRadius(10)
+            }
+            .padding()
         }
         .navigationBarTitle(event.name)
     }

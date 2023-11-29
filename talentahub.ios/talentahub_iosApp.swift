@@ -25,7 +25,9 @@ struct talentahub_iosApp: App {
 
     var body: some Scene {
         WindowGroup {
+           
            ContentView()
+           
         }
         .modelContainer(sharedModelContainer)
     }

@@ -20,6 +20,8 @@
 		AED181342B16533A008E8569 /* talentahub_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED181332B16533A008E8569 /* talentahub_iosTests.swift */; };
 		AED1813E2B16533A008E8569 /* talentahub_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED1813D2B16533A008E8569 /* talentahub_iosUITests.swift */; };
 		AED181402B16533A008E8569 /* talentahub_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED1813F2B16533A008E8569 /* talentahub_iosUITestsLaunchTests.swift */; };
+		AEF5DC642B17C5B00075A81D /* AddProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF5DC632B17C5B00075A81D /* AddProjectView.swift */; };
+		AEF5DC672B17D5240075A81D /* ImageBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF5DC662B17D5240075A81D /* ImageBasic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		AED181392B16533A008E8569 /* talentahub.iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = talentahub.iosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED1813D2B16533A008E8569 /* talentahub_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talentahub_iosUITests.swift; sourceTree = "<group>"; };
 		AED1813F2B16533A008E8569 /* talentahub_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talentahub_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AEF5DC632B17C5B00075A81D /* AddProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectView.swift; sourceTree = "<group>"; };
+		AEF5DC662B17D5240075A81D /* ImageBasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBasic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 				AE729BA62B16606C00EFB69E /* EventListView.swift */,
 				AE2283882B16ADAA00BCBF48 /* AddEventView.swift */,
 				AE08AD932B178A0900831921 /* ProjectListView.swift */,
+				AEF5DC632B17C5B00075A81D /* AddProjectView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 				AED181242B165339008E8569 /* Item.swift */,
 				AED181262B16533A008E8569 /* Assets.xcassets */,
 				AED181282B16533A008E8569 /* Preview Content */,
+				AEF5DC662B17D5240075A81D /* ImageBasic.swift */,
 			);
 			path = talentahub.ios;
 			sourceTree = "<group>";
@@ -323,9 +329,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEF5DC672B17D5240075A81D /* ImageBasic.swift in Sources */,
 				AE729BA72B16606C00EFB69E /* EventListView.swift in Sources */,
 				AE2283892B16ADAA00BCBF48 /* AddEventView.swift in Sources */,
 				AE729BA52B165FF300EFB69E /* Event.swift in Sources */,
+				AEF5DC642B17C5B00075A81D /* AddProjectView.swift in Sources */,
 				AED181232B165339008E8569 /* ContentView.swift in Sources */,
 				AED181252B165339008E8569 /* Item.swift in Sources */,
 				AE08AD922B1787C100831921 /* Project.swift in Sources */,

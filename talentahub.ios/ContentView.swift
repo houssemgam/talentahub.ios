@@ -14,7 +14,7 @@ struct ContentView: View {
                         Label("Events", systemImage: "calendar")
                     }
             }
-            .navigationTitle("App")
+            .navigationTitle("TalentaHub")
         }
     }
 }
