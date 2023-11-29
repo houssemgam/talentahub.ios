@@ -48,6 +48,7 @@ struct EventListView: View {
     }
 }
 
+
 struct EventListItemView: View {
     let event: EventList
 
@@ -73,7 +74,6 @@ struct EventListItemView: View {
         .padding(.vertical, 8)
     }
 }
-
 struct EventDetailView: View {
     let event: EventList
 
@@ -104,10 +104,29 @@ struct EventDetailView: View {
                 .padding()
                 .background(Color(.systemBackground))
                 .cornerRadius(10)
+
+                Button(action: {
+                    // Implement the action to book the event here
+                    bookEvent()
+                }) {
+                    Text("Book")
+                        .fontWeight(.bold)
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                        .shadow(color: Color.blue.opacity(0.3), radius: 5, x: 0, y: 2)
+                }
             }
             .padding()
         }
         .navigationBarTitle(event.name)
     }
-}
 
+    private func bookEvent() {
+        // Implement the logic to book the event here
+        print("Booking event: \(event.name)")
+    }
+}
