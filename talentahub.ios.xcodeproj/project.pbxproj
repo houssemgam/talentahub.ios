@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE08AD922B1787C100831921 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE08AD912B1787C100831921 /* Project.swift */; };
+		AE08AD942B178A0900831921 /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE08AD932B178A0900831921 /* ProjectListView.swift */; };
 		AE2283892B16ADAA00BCBF48 /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2283882B16ADAA00BCBF48 /* AddEventView.swift */; };
 		AE729BA52B165FF300EFB69E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE729BA42B165FF300EFB69E /* Event.swift */; };
 		AE729BA72B16606C00EFB69E /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE729BA62B16606C00EFB69E /* EventListView.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE08AD912B1787C100831921 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		AE08AD932B178A0900831921 /* ProjectListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListView.swift; sourceTree = "<group>"; };
 		AE2283882B16ADAA00BCBF48 /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
 		AE729BA42B165FF300EFB69E /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		AE729BA62B16606C00EFB69E /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
@@ -84,6 +88,7 @@
 			children = (
 				AE729BA62B16606C00EFB69E /* EventListView.swift */,
 				AE2283882B16ADAA00BCBF48 /* AddEventView.swift */,
+				AE08AD932B178A0900831921 /* ProjectListView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -92,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				AE729BA42B165FF300EFB69E /* Event.swift */,
+				AE08AD912B1787C100831921 /* Project.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -322,6 +328,8 @@
 				AE729BA52B165FF300EFB69E /* Event.swift in Sources */,
 				AED181232B165339008E8569 /* ContentView.swift in Sources */,
 				AED181252B165339008E8569 /* Item.swift in Sources */,
+				AE08AD922B1787C100831921 /* Project.swift in Sources */,
+				AE08AD942B178A0900831921 /* ProjectListView.swift in Sources */,
 				AED181212B165339008E8569 /* talentahub_iosApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

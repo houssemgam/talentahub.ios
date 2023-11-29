@@ -1,73 +1,26 @@
-//
-//  ContentView.swift
-//  talentahub.ios
-//
-//  Created by mikhail on 28/11/2023.
-//
-
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
-    
-        var body: some View {
-            EventListView()
-        }
-    }
-
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-        }
-    }
-
-  //  @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+        NavigationView {
+            TabView {
+                ProjectListView()
+                    .tabItem {
+                        Label("Projects", systemImage: "folder")
                     }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                
+                EventListView()
+                    .tabItem {
+                        Label("Events", systemImage: "calendar")
                     }
-                }
             }
-        } detail: {
-            Text("Select an item")
+            .navigationTitle("App")
         }
     }
+}
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-      //      modelContext.insert(newItem)
-        }
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-               // modelContext.delete(items[index])
-            }
-        }
-    }
-
-
-#Preview {
-    ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
 }
