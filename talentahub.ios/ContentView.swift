@@ -14,12 +14,12 @@ struct ContentView: View {
                         Label("Events", systemImage: "calendar")
                     }
             }
-            .navigationTitle("TalentaHub")
+            .navigationTitle("")
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct contentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
