@@ -3,43 +3,8 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
-
-/* Begin PBXBuildFile section */
-		AE08AD922B1787C100831921 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE08AD912B1787C100831921 /* Project.swift */; };
-		AE08AD942B178A0900831921 /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE08AD932B178A0900831921 /* ProjectListView.swift */; };
-		AE2283892B16ADAA00BCBF48 /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2283882B16ADAA00BCBF48 /* AddEventView.swift */; };
-		AE729BA52B165FF300EFB69E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE729BA42B165FF300EFB69E /* Event.swift */; };
-		AE729BA72B16606C00EFB69E /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE729BA62B16606C00EFB69E /* EventListView.swift */; };
-		AED181212B165339008E8569 /* talentahub_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED181202B165339008E8569 /* talentahub_iosApp.swift */; };
-		AED181232B165339008E8569 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED181222B165339008E8569 /* ContentView.swift */; };
-		AED181252B165339008E8569 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED181242B165339008E8569 /* Item.swift */; };
-		AED181272B16533A008E8569 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AED181262B16533A008E8569 /* Assets.xcassets */; };
-		AED1812A2B16533A008E8569 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AED181292B16533A008E8569 /* Preview Assets.xcassets */; };
-		AED181342B16533A008E8569 /* talentahub_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED181332B16533A008E8569 /* talentahub_iosTests.swift */; };
-		AED1813E2B16533A008E8569 /* talentahub_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED1813D2B16533A008E8569 /* talentahub_iosUITests.swift */; };
-		AED181402B16533A008E8569 /* talentahub_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED1813F2B16533A008E8569 /* talentahub_iosUITestsLaunchTests.swift */; };
-		AEF5DC642B17C5B00075A81D /* AddProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF5DC632B17C5B00075A81D /* AddProjectView.swift */; };
-		AEF5DC672B17D5240075A81D /* ImageBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF5DC662B17D5240075A81D /* ImageBasic.swift */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		AED181302B16533A008E8569 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AED181152B165339008E8569 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AED1811C2B165339008E8569;
-			remoteInfo = talentahub.ios;
-		};
-		AED1813A2B16533A008E8569 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AED181152B165339008E8569 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AED1811C2B165339008E8569;
-			remoteInfo = talentahub.ios;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		AE08AD912B1787C100831921 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
@@ -47,44 +12,17 @@
 		AE2283882B16ADAA00BCBF48 /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
 		AE729BA42B165FF300EFB69E /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		AE729BA62B16606C00EFB69E /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
-		AED1811D2B165339008E8569 /* talentahub.ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talentahub.ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED181202B165339008E8569 /* talentahub_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talentahub_iosApp.swift; sourceTree = "<group>"; };
 		AED181222B165339008E8569 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AED181242B165339008E8569 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		AED181262B16533A008E8569 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AED181292B16533A008E8569 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AED1812F2B16533A008E8569 /* talentahub.iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = talentahub.iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED181332B16533A008E8569 /* talentahub_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talentahub_iosTests.swift; sourceTree = "<group>"; };
-		AED181392B16533A008E8569 /* talentahub.iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = talentahub.iosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED1813D2B16533A008E8569 /* talentahub_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talentahub_iosUITests.swift; sourceTree = "<group>"; };
 		AED1813F2B16533A008E8569 /* talentahub_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talentahub_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AEF5DC632B17C5B00075A81D /* AddProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectView.swift; sourceTree = "<group>"; };
 		AEF5DC662B17D5240075A81D /* ImageBasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBasic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		AED1811A2B165339008E8569 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AED1812C2B16533A008E8569 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AED181362B16533A008E8569 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		AE2283812B1690E500BCBF48 /* views */ = {
@@ -154,9 +92,6 @@
 		AED1811E2B165339008E8569 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AED1811D2B165339008E8569 /* talentahub.ios.app */,
-				AED1812F2B16533A008E8569 /* talentahub.iosTests.xctest */,
-				AED181392B16533A008E8569 /* talentahub.iosUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -201,62 +136,6 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXNativeTarget section */
-		AED1811C2B165339008E8569 /* talentahub.ios */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AED181432B16533A008E8569 /* Build configuration list for PBXNativeTarget "talentahub.ios" */;
-			buildPhases = (
-				AED181192B165339008E8569 /* Sources */,
-				AED1811A2B165339008E8569 /* Frameworks */,
-				AED1811B2B165339008E8569 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = talentahub.ios;
-			productName = talentahub.ios;
-			productReference = AED1811D2B165339008E8569 /* talentahub.ios.app */;
-			productType = "com.apple.product-type.application";
-		};
-		AED1812E2B16533A008E8569 /* talentahub.iosTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AED181462B16533A008E8569 /* Build configuration list for PBXNativeTarget "talentahub.iosTests" */;
-			buildPhases = (
-				AED1812B2B16533A008E8569 /* Sources */,
-				AED1812C2B16533A008E8569 /* Frameworks */,
-				AED1812D2B16533A008E8569 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				AED181312B16533A008E8569 /* PBXTargetDependency */,
-			);
-			name = talentahub.iosTests;
-			productName = talentahub.iosTests;
-			productReference = AED1812F2B16533A008E8569 /* talentahub.iosTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		AED181382B16533A008E8569 /* talentahub.iosUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AED181492B16533A008E8569 /* Build configuration list for PBXNativeTarget "talentahub.iosUITests" */;
-			buildPhases = (
-				AED181352B16533A008E8569 /* Sources */,
-				AED181362B16533A008E8569 /* Frameworks */,
-				AED181372B16533A008E8569 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				AED1813B2B16533A008E8569 /* PBXTargetDependency */,
-			);
-			name = talentahub.iosUITests;
-			productName = talentahub.iosUITests;
-			productReference = AED181392B16533A008E8569 /* talentahub.iosUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-/* End PBXNativeTarget section */
-
 /* Begin PBXProject section */
 		AED181152B165339008E8569 /* Project object */ = {
 			isa = PBXProject;
@@ -264,19 +143,6 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
-				TargetAttributes = {
-					AED1811C2B165339008E8569 = {
-						CreatedOnToolsVersion = 15.0.1;
-					};
-					AED1812E2B16533A008E8569 = {
-						CreatedOnToolsVersion = 15.0.1;
-						TestTargetID = AED1811C2B165339008E8569;
-					};
-					AED181382B16533A008E8569 = {
-						CreatedOnToolsVersion = 15.0.1;
-						TestTargetID = AED1811C2B165339008E8569;
-					};
-				};
 			};
 			buildConfigurationList = AED181182B165339008E8569 /* Build configuration list for PBXProject "talentahub.ios" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -287,92 +153,17 @@
 				Base,
 			);
 			mainGroup = AED181142B165339008E8569;
+			packageReferences = (
+				74DB20322B1E9C760062B1C9 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				74D748BF2B1EA74C00D27EDF /* XCLocalSwiftPackageReference "../../Downloads/Alamofire-master" */,
+			);
 			productRefGroup = AED1811E2B165339008E8569 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AED1811C2B165339008E8569 /* talentahub.ios */,
-				AED1812E2B16533A008E8569 /* talentahub.iosTests */,
-				AED181382B16533A008E8569 /* talentahub.iosUITests */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		AED1811B2B165339008E8569 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AED1812A2B16533A008E8569 /* Preview Assets.xcassets in Resources */,
-				AED181272B16533A008E8569 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AED1812D2B16533A008E8569 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AED181372B16533A008E8569 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		AED181192B165339008E8569 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AEF5DC672B17D5240075A81D /* ImageBasic.swift in Sources */,
-				AE729BA72B16606C00EFB69E /* EventListView.swift in Sources */,
-				AE2283892B16ADAA00BCBF48 /* AddEventView.swift in Sources */,
-				AE729BA52B165FF300EFB69E /* Event.swift in Sources */,
-				AEF5DC642B17C5B00075A81D /* AddProjectView.swift in Sources */,
-				AED181232B165339008E8569 /* ContentView.swift in Sources */,
-				AED181252B165339008E8569 /* Item.swift in Sources */,
-				AE08AD922B1787C100831921 /* Project.swift in Sources */,
-				AE08AD942B178A0900831921 /* ProjectListView.swift in Sources */,
-				AED181212B165339008E8569 /* talentahub_iosApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AED1812B2B16533A008E8569 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AED181342B16533A008E8569 /* talentahub_iosTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AED181352B16533A008E8569 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AED181402B16533A008E8569 /* talentahub_iosUITestsLaunchTests.swift in Sources */,
-				AED1813E2B16533A008E8569 /* talentahub_iosUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		AED181312B16533A008E8569 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AED1811C2B165339008E8569 /* talentahub.ios */;
-			targetProxy = AED181302B16533A008E8569 /* PBXContainerItemProxy */;
-		};
-		AED1813B2B16533A008E8569 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AED1811C2B165339008E8569 /* talentahub.ios */;
-			targetProxy = AED1813A2B16533A008E8569 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		AED181412B16533A008E8569 /* Debug */ = {
@@ -494,134 +285,6 @@
 			};
 			name = Release;
 		};
-		AED181442B16533A008E8569 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"talentahub.ios/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "esprit.tn.talentahub-ios";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		AED181452B16533A008E8569 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"talentahub.ios/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "esprit.tn.talentahub-ios";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		AED181472B16533A008E8569 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "esprit.tn.talentahub-iosTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/talentahub.ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/talentahub.ios";
-			};
-			name = Debug;
-		};
-		AED181482B16533A008E8569 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "esprit.tn.talentahub-iosTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/talentahub.ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/talentahub.ios";
-			};
-			name = Release;
-		};
-		AED1814A2B16533A008E8569 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "esprit.tn.talentahub-iosUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = talentahub.ios;
-			};
-			name = Debug;
-		};
-		AED1814B2B16533A008E8569 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "esprit.tn.talentahub-iosUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = talentahub.ios;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -634,34 +297,25 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AED181432B16533A008E8569 /* Build configuration list for PBXNativeTarget "talentahub.ios" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AED181442B16533A008E8569 /* Debug */,
-				AED181452B16533A008E8569 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		AED181462B16533A008E8569 /* Build configuration list for PBXNativeTarget "talentahub.iosTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AED181472B16533A008E8569 /* Debug */,
-				AED181482B16533A008E8569 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		AED181492B16533A008E8569 /* Build configuration list for PBXNativeTarget "talentahub.iosUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AED1814A2B16533A008E8569 /* Debug */,
-				AED1814B2B16533A008E8569 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		74D748BF2B1EA74C00D27EDF /* XCLocalSwiftPackageReference "../../Downloads/Alamofire-master" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../Downloads/Alamofire-master";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		74DB20322B1E9C760062B1C9 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = AED181152B165339008E8569 /* Project object */;
 }

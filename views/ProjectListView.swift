@@ -1,179 +1,245 @@
 import SwiftUI
 
-struct Project: Identifiable {
-    let id = UUID()
-    let title: String
-    let date: Date
-    let description: String
-    let exigence: String
-    let detail: String
-    let image: String
-}
 
 struct ProjectListView: View {
-    let projects: [Project] = [
-        Project(title: "Portrait Painting", date: Date(), description: "Create a realistic portrait painting using oil colors.", exigence: "Capture the likeness and expression of the subject.", detail: "The painting will be executed on a canvas using traditional oil painting techniques.", image: "paint"),
-        Project(title: "Digital Illustration", date: Date(), description: "Produce a vibrant digital illustration for a book cover.", exigence: "Portray the theme and atmosphere of the book.", detail: "The illustration will be created using digital drawing software and a graphics tablet.", image: "Digital"),
-        Project(title: "Sculpture Installation", date: Date(), description: "Design and fabricate a large-scale sculpture installation for a public space.", exigence: "Create an engaging and interactive experience for viewers.", detail: "The sculpture will be constructed using metal and other materials, incorporating kinetic elements.", image: "Sculpture"),
-        Project(title: "Photography Exhibition", date: Date(), description: "Curate and organize a photography exhibition showcasing local talent.", exigence: "Highlight diverse photographic styles and themes.", detail: "The exhibition will feature a selection of photographs displayed in a gallery setting.", image: "photography"),
-        Project(title: "Street Art Mural", date: Date(), description: "Paint a large-scale mural on a public wall in a cityscape.", exigence: "Reflect the cultural context and engage with the local community.", detail: "The mural will be created using spray paint and stencils, incorporating vibrant colors and bold imagery.", image: "street")
-    ]
-    
-    @State private var selectedProject: Project?
-    @State private var isAddingProject = false
+    @State var projects: [project] = [] // Change 'project' to 'Project'
+    @State private var isAddingProject = false // Used to present the project adding view
+
+    @State private var selectedProject: project?
     
     var body: some View {
         NavigationView {
-            List(projects) { project in
-                ProjectListItemView(project: project)
-                    .onTapGesture {
-                        selectedProject = project
-                    }
-            }
-            .navigationTitle("Projects")
-            .sheet(item: $selectedProject) { project in
-                ProjectDetailView(project: project)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        isAddingProject = true
-                    }) {
-                        Label("Add", systemImage: "plus")
+            ScrollView {
+                LazyVStack(spacing: 16) {
+                    ForEach(projects, id: \.id) { project in
+                        VStack(alignment: .leading, spacing: 8) {
+                            // Use a ProjectCardView with a featured image
+                            ProjectCardView(project: project)
+                                .onTapGesture {
+                                    selectedProject = project // Select the project when tapped
+                                }
+                        }
+                        .padding(.horizontal)
                     }
                 }
-            }
-        }
-        .accentColor(.purple)
-        .sheet(isPresented: $isAddingProject) {
-            AddProjectView()
-        }
-    }
-}
-
-struct addProjectView: View {
-    var body: some View {
-        Text("Add Project View")
-    }
-}
-
-struct ProjectListItemView: View {
-    let project: Project
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            HStack {
-                Spacer()
-                Image(project.image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .cornerRadius(8)
-                    .clipped()
-                Spacer()
+                .padding(.top, 16)
             }
             
-            VStack(alignment: .leading, spacing: 8) {
-                Text(project.title)
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .foregroundColor(.primary)
-                
-                Text(project.date, style: .date)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                
-                Text(project.description)
-                    .font(.body)
-                    .foregroundColor(.secondary)
-                    .lineLimit(2)
-                
-                Text(project.exigence)
-                    .font(.body)
-                    .foregroundColor(.secondary)
-                    .lineLimit(2)
+            .navigationBarTitle("Projects")
+            .onAppear {
+                fetchProjects()
             }
+            
+            .sheet(item: $selectedProject) { project in
+                // Display details of the selected project in a dedicated view (Sheet)
+                ProjectDetailView(project: project)
+            }
+            .sheet(isPresented: $isAddingProject) {
+                AddProjectView() // Open AddProjectView when isAddingProject is true
+            }
+            Spacer()
+            
         }
-        .padding(8)
-        .background(Color(.systemBackground))
-        .cornerRadius(10)
-        .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
+        .overlay(
+            VStack {
+                Spacer()
+                Button(action: {
+                    isAddingProject = true // Activate project adding
+                }) {
+                    Image(systemName: "plus.circle.fill")
+                        .font(.title)
+                        .padding()
+                        .frame(width: 20, height: 20) // Adjust icon size as needed
+                        .foregroundColor(Color(red: 0.36, green: 0.7, blue: 0.36)) // Icon color // Choose the appropriate color
+                        .imageScale(.large) // Choose the scale
+                }
+            }
+        )
     }
 }
 
-struct ProjectDetailView: View {
-    let project: Project
-    @State private var message: String = ""
+struct ProjectCardView: View {
+    let project: project
 
     var body: some View {
-        VStack(spacing: 16) {
-            Image(project.image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 200)
-                .cornerRadius(12)
+        VStack(alignment: .leading, spacing: 8) {
+            AsyncImageView(url: project.image)
+                .frame(height: 200) // Size of the featured image
 
-            VStack(alignment: .leading, spacing: 8) {
-                Text("Title")
-                    .font(.headline)
-                Text(project.title)
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.primary)
+            Text(project.title)
+                .font(.headline)
+                .foregroundColor(.primary)
 
-                Text("Date")
-                    .font(.headline)
-                Text(project.date, style: .date)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+            Text("Date: \(formattedDate(date: project.date))")
+                .font(.subheadline)
+                .foregroundColor(.gray)
 
-                Text("Description")
-                    .font(.headline)
-                Text(project.description)
-                    .font(.body)
-                    .foregroundColor(.secondary)
-
-                Text("Exigence")
-                    .font(.headline)
-                Text(project.exigence)
-                    .font(.body)
-                    .foregroundColor(.secondary)
-
-                Text("Detail")
-                    .font(.headline)
-                Text(project.detail)
-                    .font(.body)
-                    .foregroundColor(.secondary)
-
-                Divider()
-
-                Text("Message")
-                    .font(.headline)
-                TextField("Enter your message", text: $message)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-
-                Button(action: {
-                    // Perform action when the send button is tapped
-                    sendMessage()
-                }) {
-                    Text("Send")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.purple)
-                        .cornerRadius(10)
-                }
-            }
-            .padding()
-            .background(Color(.systemBackground))
-            .cornerRadius(10)
+            Text("Description: \(project.description)")
+                .font(.subheadline)
+                .foregroundColor(.gray)
         }
         .padding()
+        .background(Color.white)
+        .cornerRadius(12)
+        .shadow(radius: 4)
+    }
+}
+// Format date as needed
+  private func formattedDate(date: Date) -> String {
+      let dateFormatter = DateFormatter()
+      dateFormatter.dateStyle = .short
+      return dateFormatter.string(from: date)
+  }
+
+
+struct ProjectDetailView: View {
+    let project: project
+    @State private var isFavorite: Bool = false
+
+    var body: some View {
+        VStack {
+            Text(project.title)
+                .font(.title)
+                .padding()
+
+            AsyncImageView(url: project.image)
+                .frame(maxWidth: .infinity, maxHeight: 200)
+                .padding()
+                .shadow(radius: 4)
+
+            HStack {
+                Button(action: {
+                    isFavorite.toggle()
+                    // Add code here to save the project as a favorite
+                }, label: {
+                    HStack {
+                        Image(systemName: isFavorite ? "star.fill" : "star")
+                            .foregroundColor(.white)
+                        Text(isFavorite ? "Unmark as Favorite" : "Mark as Favorite")
+                            .foregroundColor(.white)
+                    }
+                })
+                .padding()
+                .background(Color(red: 0.36, green: 0.7, blue: 0.36))
+                .cornerRadius(10)
+
+                Button(action: {
+                    // Add action for sharing the project
+                }, label: {
+                    Image(systemName: "square.and.arrow.up")
+                        .foregroundColor(.white)
+                })
+                .padding()
+                .background(Color.blue)
+                .cornerRadius(10)
+            }
+
+            Text("Date: \(formattedDate(date: project.date))")
+                .font(.headline)
+                .padding(.horizontal)
+
+            Text("Description: \(project.description)")
+                .font(.body)
+                .padding()
+
+            Spacer()
+        }
+        .navigationBarTitle(Text("Project Details"), displayMode: .inline)
     }
 
-    private func sendMessage() {
-        // Implement your logic to send the message
-        print("Sending message: \(message)")
+    // Format date as needed
+    private func formattedDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        return dateFormatter.string(from: date)
+    }
+}
+
+func fetchProjects() {
+    guard let url = URL(string: "http://localhost:5001/api/projects") else {
+        print("Invalid URL")
+        return
+    }
+
+    URLSession.shared.dataTask(with: url) { data, _, error in
+        if let error = error {
+            print("Error fetching projects: \(error)")
+            return
+        }
+
+        guard let data = data else {
+            print("No data found")
+            return
+        }
+
+        let decoder = JSONDecoder()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        decoder.dateDecodingStrategy = .formatted(dateFormatter)
+
+        do {
+            let json = try JSONSerialization.jsonObject(with: data, options: [])
+            if let jsonDictionary = json as? [String: Any], let projectList = jsonDictionary["list"] as? [[String: Any]] {
+                let jsonData = try JSONSerialization.data(withJSONObject: projectList)
+                let fetchedProjects = try decoder.decode([project].self, from: jsonData) // Change 'project' to 'Project'
+                DispatchQueue.main.async {
+                    self.projects = fetchedProjects
+                }
+            } else {
+                print("JSON structure doesn't match")
+            }
+        } catch {
+            print("JSON decoding error: \(error)")
+            if let jsonString = String(data: data, encoding: .utf8) {
+                print("Received JSON: \(jsonString)")
+            } else {
+                print("Unable to convert JSON data to string")
+            }
+        }
+
+    }.resume()
+}
+
+struct AsyncImageView: View {
+    @StateObject private var imageLoader: ImageLoader
+    
+    init(url: String) {
+        let urlString = "http://localhost:5001/" + url
+        _imageLoader = StateObject(wrappedValue: ImageLoader(url: urlString))
+    }
+    
+    var body: some View {
+        if let uiImage = imageLoader.image {
+            Image(uiImage: uiImage)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+        } else {
+            // Placeholder image or loading indicator
+            ProgressView()
+                .progressViewStyle(CircularProgressViewStyle())
+        }
+    }
+}
+
+class ImageLoader: ObservableObject {
+    @Published var image: UIImage?
+    
+    init(url: String) {
+        guard let imageURL = URL(string: url) else { return }
+        
+        URLSession.shared.dataTask(with: imageURL) { data, response, error in
+            if let data = data, let loadedImage = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    self.image = loadedImage
+                }
+            }
+        }.resume()
+    }
+}
+
+struct ProjectListView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProjectListView() // Provide a type annotation if necessary
     }
 }
