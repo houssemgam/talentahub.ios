@@ -79,7 +79,7 @@ struct AddProjectView: View {
     }
 
     func sendProjectToServer() {
-        guard let imageData = image?.jpegData(compressionQuality: 0.5) else {
+        guard (image?.jpegData(compressionQuality: 0.5)) != nil else {
             print("Selected image is missing")
             return
         }
@@ -92,7 +92,7 @@ struct AddProjectView: View {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
 
-        let formData = MultipartFormData()
+        _ = MultipartFormData()
 
         AF.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(projectName.data(using: .utf8) ?? Data(), withName: "projectName")
