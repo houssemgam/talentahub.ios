@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74A1B32B2B1FD3D50096D931 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 74A1B32A2B1FD3D50096D931 /* Alamofire */; };
+		74A1B32E2B20192B0096D931 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 74A1B32D2B20192B0096D931 /* URLImage */; };
+		74A1B3302B20192B0096D931 /* URLImageStore in Frameworks */ = {isa = PBXBuildFile; productRef = 74A1B32F2B20192B0096D931 /* URLImageStore */; };
 		AE08AD922B1787C100831921 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE08AD912B1787C100831921 /* Project.swift */; };
 		AE08AD942B178A0900831921 /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE08AD932B178A0900831921 /* ProjectListView.swift */; };
 		AE2283892B16ADAA00BCBF48 /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2283882B16ADAA00BCBF48 /* AddEventView.swift */; };
@@ -67,6 +70,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74A1B32E2B20192B0096D931 /* URLImage in Frameworks */,
+				74A1B3302B20192B0096D931 /* URLImageStore in Frameworks */,
+				74A1B32B2B1FD3D50096D931 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +93,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		74F219022B1FD2AF0075396C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AE2283812B1690E500BCBF48 /* views */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +161,7 @@
 				AED181322B16533A008E8569 /* talentahub.iosTests */,
 				AED1813C2B16533A008E8569 /* talentahub.iosUITests */,
 				AED1811E2B165339008E8569 /* Products */,
+				74F219022B1FD2AF0075396C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -216,6 +230,9 @@
 			);
 			name = talentahub.ios;
 			packageProductDependencies = (
+				74A1B32A2B1FD3D50096D931 /* Alamofire */,
+				74A1B32D2B20192B0096D931 /* URLImage */,
+				74A1B32F2B20192B0096D931 /* URLImageStore */,
 			);
 			productName = talentahub.ios;
 			productReference = AED1811D2B165339008E8569 /* talentahub.ios.app */;
@@ -290,7 +307,8 @@
 			);
 			mainGroup = AED181142B165339008E8569;
 			packageReferences = (
-				7436B81C2B1EC175000FDDE8 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				74A1B3292B1FD3D50096D931 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				74A1B32C2B20192B0096D931 /* XCRemoteSwiftPackageReference "url-image" */,
 			);
 			productRefGroup = AED1811E2B165339008E8569 /* Products */;
 			projectDirPath = "";
@@ -669,7 +687,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7436B81C2B1EC175000FDDE8 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		74A1B3292B1FD3D50096D931 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -677,7 +695,33 @@
 				minimumVersion = 5.8.1;
 			};
 		};
+		74A1B32C2B20192B0096D931 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		74A1B32A2B1FD3D50096D931 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74A1B3292B1FD3D50096D931 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		74A1B32D2B20192B0096D931 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74A1B32C2B20192B0096D931 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+		74A1B32F2B20192B0096D931 /* URLImageStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74A1B32C2B20192B0096D931 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImageStore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AED181152B165339008E8569 /* Project object */;
 }

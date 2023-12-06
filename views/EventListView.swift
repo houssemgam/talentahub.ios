@@ -1,188 +1,229 @@
 import SwiftUI
+import URLImage
 
-struct EventList: Identifiable {
-    let id = UUID()
-    let name: String
-    let date: Date
-    let description: String
-    let location: String
-    let image: Image
-}
-
-struct EventListView: View {
-    let events: [EventList] = [
-        EventList(name: "Concert", date: Date(), description: "Join us for an amazing concert with your favorite artists.", location: "City A", image: Image("dj")),
-        EventList(name: "Sports Tournament", date: Date(), description: "Cheer on your favorite teams and athletes in an exciting sports tournament.", location: "City B", image: Image("sport")),
-        EventList(name: "Art Exhibition", date: Date(), description: "Explore a diverse collection of artwork from talented artists.", location: "City C", image: Image("art")),
-        EventList(name: "Jazz Festival", date: Date(), description: "Immerse yourself in the smooth tunes of jazz at our annual festival.", location: "City D", image: Image("jazz"))
-    ]
+struct MyEventsView: View {
+    @State private var events: [Event] = []
+    @State private var isAddingEvent = false
+    @State private var selectedEvent: Event?
 
     var body: some View {
         NavigationView {
-            List(events) { event in
-                NavigationLink(destination: EventDetailView(event: event)) {
-                    EventListItemView(event: event)
+            ScrollView {
+                LazyVStack(spacing: 16) {
+                    ForEach(events, id: \.id) { event in
+                        VStack(alignment: .leading, spacing: 8) {
+                            EventCardView(event: event)
+                                .onTapGesture {
+                                    selectedEvent = event
+                                }
+                        }
+                        .padding(.horizontal)
+                    }
                 }
+                .padding(.top, 16)
             }
-            .navigationTitle("Events")
-        }
-    }
-}
-
-struct EventListItemView: View {
-    let event: EventList
-
-    var body: some View {
-        HStack {
-            event.image
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 100, height: 100)
-                .cornerRadius(8)
-
-            VStack(alignment: .leading, spacing: 4) {
-                Text(event.name)
-                    .font(.headline)
-                    .foregroundColor(.primary)
-
-                Text(event.date, style: .date)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                
-                Text(event.location)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+            .navigationBarTitle("Events")
+            .onAppear {
+                fetchEvents()
             }
+            .sheet(item: $selectedEvent) { event in
+                EventDetailView(event: event)
+            }
+            .sheet(isPresented: $isAddingEvent) {
+                AddEventView()
+            }
+            Spacer()
         }
-        .padding(.vertical, 8)
-        .background(Color.gray.opacity(0.1))
-        .cornerRadius(10)
-    }
-}
-
-
-struct EventDetailView: View {
-    let event: EventList
-
-    @State private var isBookingConfirmationPresented = false
-
-    var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                event.image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .cornerRadius(10)
-                
-                Text(event.name)
-                    .font(.title)
-                    .fontWeight(.bold)
-                
-                Text(event.description)
-                    .font(.body)
-                    .foregroundColor(.secondary)
-                
-                Text("Location: \(event.location)")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                
-                Text("Date: \(event.date, style: .date)")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                
+        .overlay(
+            VStack {
+                Spacer()
                 Button(action: {
-                    bookEvent()
+                    isAddingEvent = true
                 }) {
-                    Text("Book")
-                        .fontWeight(.bold)
-                        .font(.headline)
-                        .foregroundColor(.white)
+                    Image(systemName: "plus.circle.fill")
+                        .font(.title)
                         .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                        .shadow(color: Color.blue.opacity(0.3), radius: 5, x: 0, y: 2)
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(Color(red: 0.36, green: 0.7, blue: 0.36))
+                        .imageScale(.large)
                 }
             }
-            .padding()
-        }
-        .navigationBarTitle(event.name)
-        .sheet(isPresented: $isBookingConfirmationPresented) {
-            BookingConfirmationView(event: event)
+        )
+    }
+
+    struct EventCardView: View {
+        let event: Event
+
+        var body: some View {
+            VStack(alignment: .leading, spacing: 16) {
+                ZStack(alignment: .topTrailing) {
+                    URLImage(URL(string: event.image)!) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    }
+                    .frame(height: 200)
+                    .cornerRadius(16)
+
+                    Text(event.name)
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .padding(12)
+                }
+
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Description:")
+                        .font(.headline)
+                        .foregroundColor(.gray)
+                    Text(event.description)
+                        .font(.body)
+                        .foregroundColor(.primary)
+
+                    Text("Location:")
+                        .font(.headline)
+                        .foregroundColor(.gray)
+                    Text(event.location)
+                        .font(.body)
+                        .foregroundColor(.primary)
+                }
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(Color(UIColor.secondarySystemBackground))
+                )
+                .shadow(color: Color.gray.opacity(0.3), radius: 8, x: 0, y: 4)
+            }
+            .padding([.leading, .trailing], 16)
         }
     }
 
-    private func bookEvent() {
-        print("Booking event: \(event.name)")
-        isBookingConfirmationPresented = true
-    }
-}
-struct BookingConfirmationView: View {
-    let event: EventList
-    
-    @State private var isSharing = false
-    
-    var body: some View {
-        VStack(spacing: 16) {
-            Image(systemName: "checkmark.circle")
-                .font(.system(size: 80))
-                .foregroundColor(.green)
-            
-            Text("Event Booked!")
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(.primary)
-            
-            Text("You have successfully booked the \(event.name) event.")
-                .font(.body)
-                .foregroundColor(.primary)
-                .multilineTextAlignment(.center)
-            
-            Text("Event Details:")
-                .font(.headline)
-                .fontWeight(.bold)
-                .foregroundColor(.primary)
-            
-            VStack(alignment: .leading, spacing: 8) {
-                Text("Name: \(event.name)")
-                Text("Date: \(event.date, style: .date)")
-                Text("Location: \(event.location)")
-                Text("Description: \(event.description)")
-            }
-            .font(.body)
-            .foregroundColor(.primary)
-            
-            Button(action: {
-                isSharing = true
-            }) {
-                Text("Share")
-                    .fontWeight(.bold)
-                    .font(.headline)
-                    .foregroundColor(.white)
+    struct EventDetailView: View {
+        let event: Event
+        @State private var message: String = ""
+
+        var body: some View {
+            ScrollView {
+                VStack {
+                    Text(event.name)
+                        .font(.title)
+                        .padding()
+
+                    URLImage(URL(string: event.image)!) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .padding()
+                            .shadow(radius: 4)
+                    }
+
+                    Text("Description: \(event.description)")
+                        .font(.body)
+                        .padding()
+
+                    TextField("Enter your message", text: $message)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding()
+
+                    Button(action: {
+                        // Handle send button action
+                        // You can access the message using self.message
+                    }) {
+                        Text("Send")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                    }
                     .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .cornerRadius(10)
-                    .shadow(color: Color.blue.opacity(0.3), radius: 5, x: 0, y: 2)
+                }
+                .padding()
             }
-            
-           
+            .navigationBarTitle(Text("Event Details"), displayMode: .inline)
         }
-        .padding()
-        .sheet(isPresented: $isSharing, content: {
-            ShareSheet(activityItems: [event.name])
-        })
+    }
+
+    func fetchEvents() {
+        guard let url = URL(string: "http://localhost:5001/event") else {
+            print("Invalid URL")
+            return
+        }
+
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                print("Error fetching events: \(error)")
+                return
+            }
+
+            guard let data = data else {
+                print("No data received")
+                return
+            }
+
+            let decoder = JSONDecoder()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+            dateFormatter.timeZone = TimeZone(identifier: "UTC")
+            decoder.dateDecodingStrategy = .formatted(dateFormatter)
+
+            do {
+                let eventsArray = try decoder.decode([Event].self, from: data)
+                DispatchQueue.main.async {
+                    self.events = eventsArray
+                }
+            } catch {
+                print("Error decoding events: \(error)")
+                if let jsonString = String(data: data, encoding: .utf8) {
+                    print("Received JSON: \(jsonString)")
+                } else {
+                    print("Unable to convert JSON data to string")
+                }
+            }
+        }.resume()
     }
 }
 
-struct ShareSheet: UIViewControllerRepresentable {
-    let activityItems: [Any]
-    
-    func makeUIViewController(context: Context) -> UIActivityViewController {
-        UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
-    }
-    
-    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
-        // Leave empty
-    }
-}
+       struct AsyncImageView: View {
+           @StateObject private var imageLoader: ImageLoader
+
+           init(url: String) {
+               let urlString = "http://localhost:5001/" + url
+               _imageLoader = StateObject(wrappedValue: ImageLoader(url: urlString))
+           }
+
+           var body: some View {
+               if let uiImage = imageLoader.image {
+                   Image(uiImage: uiImage)
+                       .resizable()
+                       .aspectRatio(contentMode: .fit)
+               } else {
+                   ProgressView()
+                       .progressViewStyle(CircularProgressViewStyle())
+               }
+           }
+       }
+
+       class ImageLoader: ObservableObject {
+           @Published var image: UIImage?
+
+           init(url: String) {
+               guard let imageURL = URL(string: url) else { return }
+
+               URLSession.shared.dataTask(with: imageURL) { data, response, error in
+                   if let data = data, let loadedImage = UIImage(data: data) {
+                       DispatchQueue.main.async {
+                           self.image = loadedImage
+                       }
+                   }
+               }.resume()
+           }
+       }
+
+       struct MyEventsView_Previews: PreviewProvider {
+           static var previews: some View {
+               MyEventsView()
+           }
+       }
+

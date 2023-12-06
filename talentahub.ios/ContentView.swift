@@ -4,22 +4,22 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             TabView {
-                ProjectListView()
+                MyProjectsView()
                     .tabItem {
                         Label("Projects", systemImage: "folder")
                     }
                 
-                EventListView()
+                MyEventsView()
                     .tabItem {
                         Label("Events", systemImage: "calendar")
                     }
             }
-            .navigationTitle("")
+            .navigationTitle("TalentaHub")
         }
     }
 }
 
-struct contentView_Previews: PreviewProvider {
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
