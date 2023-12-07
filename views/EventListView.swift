@@ -72,9 +72,6 @@ struct MyEventsView: View {
                     .shadow(color: Color.gray.opacity(0.3), radius: 8, x: 0, y: 4)
                     .overlay(
                         HStack(spacing: 0) {
-                            // Spacer
-                            Spacer()
-
                             // Modifier (Edit) button
                             Button(action: {
                                 // Handle edit action
@@ -98,11 +95,11 @@ struct MyEventsView: View {
                                     .foregroundColor(.red)
                                     .padding(.bottom, 16)
                             }
+                            Spacer()
                         }
                         .opacity(isSwipeActive ? 1 : 0)
                         .frame(width: isSwipeActive ? 120 : 0)
                         .animation(.default)
-                        .offset(x: isSwipeActive ? -UIScreen.main.bounds.width/2 : 0)
                     )
 
                     // Description, Location, and Event Date Frame
@@ -149,7 +146,6 @@ struct MyEventsView: View {
     }
 
 
-
     struct EventDetailView: View {
         let event: Event
         @State private var isLiked: Bool = false
@@ -157,78 +153,124 @@ struct MyEventsView: View {
         var body: some View {
             ScrollView {
                 VStack(alignment: .center, spacing: 16) {
-                   
-                    URLImage(URL(string: event.image)!) { image in
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .cornerRadius(16)
-                            .shadow(radius: 4)
-                    }
-                    .frame(height: 200) // Adjust the height based on your design preference
+                    EventImage(url: event.image)
 
-                    Text(event.name) // Display title below the image
+                    Text(event.name)
                         .font(.headline)
                         .foregroundColor(.primary)
                         .padding()
 
-                    HStack {
-                        Image(systemName: isLiked ? "heart.fill" : "heart")
-                            .font(.system(size: 20))
-                            .foregroundColor(isLiked ? Color.red : Color.gray)
-                            .onTapGesture {
-                                isLiked.toggle()
-                            }
-
-                        Text("Date: \(event.date)")
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
-
-                        Spacer()
-
-                        Text("Location: \(event.location)")
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
-                    }
-                    .padding(.horizontal)
+                    LikeDateLocationView(isLiked: $isLiked, date: event.date, location: event.location)
 
                     // Book Button
-                    Button(action: {
+                    BookingButton(action: {
                         // Add your action for booking
-                    }) {
-                        Text("Book")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.blue)
-                            .cornerRadius(10)
-                    }
-                    .padding()
+                    })
 
-                    Divider() // Add a divider for separation
+                    Divider()
 
-                    Text("Event Details")
-                        .font(.headline)
-                        .padding(.bottom, 8)
-
-                    Text("Name: \(event.name)")
-                        .font(.body)
-                        .foregroundColor(.primary)
-
-                    Text("Date: \(event.date)")
-                        .font(.body)
-                        .foregroundColor(.primary)
-
-                    Text("Location: \(event.location)")
-                        .font(.body)
-                        .foregroundColor(.primary)
+                    EventDetailsView(event: event)
                 }
                 .padding()
             }
             .navigationBarTitle(Text("Event Details"), displayMode: .inline)
         }
     }
+
+    struct EventImage: View {
+        let url: String
+        
+        var body: some View {
+            VStack(alignment: .leading, spacing: 0){
+                URLImage(URL(string: url)!) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .cornerRadius(16)
+                        .shadow(radius: 4)
+                }
+                .frame(height: 200) // Adjust the height based on your design preference
+            }
+        }
+    }
+
+    struct LikeDateLocationView: View {
+        @Binding var isLiked: Bool
+        let date: String
+        let location: String
+
+        var body: some View {
+            HStack {
+                LikeButton(isLiked: $isLiked)
+
+                Text("Date: \(date)")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+
+                Spacer()
+
+                Text("Location: \(location)")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+            }
+            .padding(.horizontal)
+        }
+    }
+
+    struct LikeButton: View {
+        @Binding var isLiked: Bool
+
+        var body: some View {
+            Image(systemName: isLiked ? "heart.fill" : "heart")
+                .font(.system(size: 20))
+                .foregroundColor(isLiked ? Color.red : Color.gray)
+                .onTapGesture {
+                    isLiked.toggle()
+                }
+        }
+    }
+
+    struct BookingButton: View {
+        var action: () -> Void
+
+        var body: some View {
+            Button(action: action) {
+                Text("Book")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
+            .padding()
+        }
+    }
+
+    struct EventDetailsView: View {
+        let event: Event
+
+        var body: some View {
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Event Details")
+                    .font(.headline)
+                    .padding(.bottom, 8)
+
+                Text("Name: \(event.name)")
+                    .font(.body)
+                    .foregroundColor(.primary)
+
+                Text("Date: \(event.date)")
+                    .font(.body)
+                    .foregroundColor(.primary)
+
+                Text("Location: \(event.location)")
+                    .font(.body)
+                    .foregroundColor(.primary)
+            }
+        }
+    }
+
 
 
     func fetchEvents() {
