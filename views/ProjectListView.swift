@@ -53,28 +53,36 @@ struct MyProjectsView: View {
             }
         )
     }
-    
     struct ProjectCardView: View {
         let project: Project
 
         var body: some View {
-            VStack(alignment: .leading, spacing: 16) {
-                ZStack(alignment: .topTrailing) {
-                    AsyncImageView(url: project.image)
-                        .frame(height: 200)
-                        .cornerRadius(16)
-
-                    Text(project.title)
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .padding(12)
-                }
+            VStack(alignment: .leading, spacing: 0) {
+                AsyncImageView(url: project.image)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 218)
+                    .cornerRadius(20)
+                    .overlay(
+                        VStack {
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                Text(project.title)
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                                    .multilineTextAlignment(.center)
+                                    .padding(8)
+                            }
+                        }
+                    )
+                    .padding(.bottom, 8)
 
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Description:")
                         .font(.headline)
                         .foregroundColor(.gray)
+
                     Text(project.description)
                         .font(.body)
                         .foregroundColor(.primary)
@@ -82,71 +90,109 @@ struct MyProjectsView: View {
                     Text("Exigence:")
                         .font(.headline)
                         .foregroundColor(.gray)
+
                     Text(project.exigence)
                         .font(.body)
                         .foregroundColor(.primary)
                 }
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(Color(UIColor.secondarySystemBackground))
-                )
-                .shadow(color: Color.gray.opacity(0.3), radius: 8, x: 0, y: 4)
+                .padding([.leading, .trailing], 16)
+                .padding(.bottom, 16)
             }
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(Color.white)
+                    .shadow(color: Color.gray.opacity(0.3), radius: 8, x: 0, y: 4)
+            )
             .padding([.leading, .trailing], 16)
         }
     }
 
-    
     struct ProjectDetailView: View {
         let project: Project
         @State private var message: String = ""
 
         var body: some View {
             ScrollView {
-                VStack {
+                VStack(alignment: .center, spacing: 16) { // Align content to the center
                     Text(project.title)
                         .font(.title)
+                        .fontWeight(.bold)
                         .padding()
+                        .multilineTextAlignment(.center)
 
                     AsyncImageView(url: project.image)
-                        .frame(maxWidth: .infinity, maxHeight: 300)
-                        .padding()
+                        
+                        .cornerRadius(16)
                         .shadow(radius: 4)
 
-                    Text("Description: \(project.description)")
+                    Text("Description:")
+                        .font(.headline)
+                        .foregroundColor(.gray)
+                        .padding(.bottom, 4)
+
+                    Text(project.description)
                         .font(.body)
-                        .padding()
+                        .foregroundColor(.primary)
 
-                    TextField("Enter your message", text: $message)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
+                    Text("Exigence:")
+                        .font(.headline)
+                        .foregroundColor(.gray)
+                        .padding(.bottom, 4)
 
-                    Button(action: {
-                        // Handle send button action
-                        // You can access the message using self.message
-                    }) {
-                        Text("Send")
-                            .font(.headline)
-                            .foregroundColor(.white)
+                    Text(project.exigence)
+                        .font(.body)
+                        .foregroundColor(.primary)
+
+                    Text("Detail:")
+                        .font(.headline)
+                        .foregroundColor(.gray)
+                        .padding(.bottom, 4)
+
+                    Text(project.detail)
+                        .font(.body)
+                        .foregroundColor(.primary)
+
+                  
+
+                    HStack {
+                        Spacer() // Add spacer to push the button to the right
+                        TextField("Enter your message", text: $message)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
                             .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.blue)
-                            .cornerRadius(10)
                     }
                     .padding()
                 }
-                .padding()
-            }
+                        Button(action: {
+                            // Handle send button action
+                            // You can access the message using self.message
+                        })
+                 
+                        {
+                            Text("Send")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .background(Color.blue)
+                                .cornerRadius(10)
+                        }
+                    }
+                    .padding()
+
+            
             .navigationBarTitle(Text("Project Details"), displayMode: .inline)
         }
+
+        private func formattedDate() -> String {
+            guard let date = project.date else {
+                return "N/A"
+            }
+
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMM d, yyyy"
+            return dateFormatter.string(from: date)
+        }
     }
-    static func formattedDate(from date: Date) -> String {
-           let dateFormatter = DateFormatter()
-           dateFormatter.dateStyle = .long
-           dateFormatter.timeStyle = .none
-           return dateFormatter.string(from: date)
-       }
 
     func fetchProjects() {
         guard let url = URL(string: "http://localhost:5001/api/projects") else {

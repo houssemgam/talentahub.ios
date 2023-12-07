@@ -11,32 +11,35 @@ struct AddEventView: View {
     @State private var createdEvent: Event? // Adjust for your needs
     
     var body: some View {
-        VStack {
-            TextField("Event Name", text: $eventName)
+        NavigationView {
+            VStack {
+                TextField("Event Name", text: $eventName)
+                    .padding()
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                TextField("Event Description", text: $eventDescription)
+                    .padding()
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                TextField("Event Location", text: $eventLocation)
+                    .padding()
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                Button("Add Event") {
+                    sendEventToServer()
+                }
                 .padding()
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-
-            TextField("Event Description", text: $eventDescription)
-                .padding()
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-
-            TextField("Event Location", text: $eventLocation)
-                .padding()
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-
-            Button("Add Event") {
-                sendEventToServer()
+                
+                ImagePicker(selectedImage: $eventImage, showImagePicker: $showImagePicker)
             }
             .padding()
-
-            ImagePicker(selectedImage: $eventImage, showImagePicker: $showImagePicker)
+            .navigationTitle("Add Event")
         }
-        .padding()
-        .navigationTitle("Add Event")
+        
     }
 
     func sendEventToServer() {
-        guard let imageData = eventImage?.jpegData(compressionQuality: 0.5) else {
+        guard (eventImage?.jpegData(compressionQuality: 0.5)) != nil else {
             print("Selected image is missing")
             return
         }

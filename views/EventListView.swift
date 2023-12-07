@@ -50,86 +50,153 @@ struct MyEventsView: View {
             }
         )
     }
-
     struct EventCardView: View {
         let event: Event
+        @State private var isSwipeActive: Bool = false
 
         var body: some View {
-            VStack(alignment: .leading, spacing: 16) {
-                ZStack(alignment: .topTrailing) {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 0) {
+                    // Image Frame
                     URLImage(URL(string: event.image)!) { image in
                         image
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
+                            .aspectRatio(contentMode: .fill)
+                            .frame(height: 200)
+                            .clipped()
+                            .cornerRadius(16)
                     }
-                    .frame(height: 200)
+                    .frame(width: UIScreen.main.bounds.width)
+                    .background(Color.blue)
                     .cornerRadius(16)
+                    .shadow(color: Color.gray.opacity(0.3), radius: 8, x: 0, y: 4)
+                    .overlay(
+                        HStack(spacing: 0) {
+                            // Spacer
+                            Spacer()
 
-                    Text(event.name)
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .padding(12)
+                            // Modifier (Edit) button
+                            Button(action: {
+                                // Handle edit action
+                                print("Edit tapped")
+                            }) {
+                                Image(systemName: "pencil.circle.fill")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .foregroundColor(.blue)
+                                    .padding(.bottom, 16)
+                            }
+
+                            // Supprimer (Delete) button
+                            Button(action: {
+                                // Handle delete action
+                                print("Delete tapped")
+                            }) {
+                                Image(systemName: "trash.circle.fill")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .foregroundColor(.red)
+                                    .padding(.bottom, 16)
+                            }
+                        }
+                        .opacity(isSwipeActive ? 1 : 0)
+                        .frame(width: isSwipeActive ? 120 : 0)
+                        .animation(.default)
+                        .offset(x: isSwipeActive ? -UIScreen.main.bounds.width/2 : 0)
+                    )
+
+                    // Description, Location, and Event Date Frame
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text(event.name)
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(.primary)
+
+                        Text("Description:")
+                            .font(.headline)
+                            .foregroundColor(.gray)
+                        Text(event.description)
+                            .font(.body)
+                            .foregroundColor(.primary)
+
+                        Text("Location: \(event.location)")
+                            .font(.headline)
+                            .foregroundColor(.gray)
+
+                        DatePicker("", selection: .constant(Date()), displayedComponents: .date)
+                            .padding(8)
+                            .background(Color.white)
+                            .cornerRadius(16)
+                    }
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(16)
+                    .shadow(color: Color.gray.opacity(0.3), radius: 8, x: 0, y: 4)
                 }
-
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Description:")
-                        .font(.headline)
-                        .foregroundColor(.gray)
-                    Text(event.description)
-                        .font(.body)
-                        .foregroundColor(.primary)
-
-                    Text("Location:")
-                        .font(.headline)
-                        .foregroundColor(.gray)
-                    Text(event.location)
-                        .font(.body)
-                        .foregroundColor(.primary)
-                }
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(Color(UIColor.secondarySystemBackground))
-                )
-                .shadow(color: Color.gray.opacity(0.3), radius: 8, x: 0, y: 4)
+                .frame(maxWidth: .infinity)
             }
+            .gesture(
+                DragGesture()
+                    .onChanged { value in
+                        isSwipeActive = value.translation.width < 0
+                    }
+                    .onEnded { _ in
+                        isSwipeActive = false
+                    }
+            )
             .padding([.leading, .trailing], 16)
         }
     }
 
+
+
     struct EventDetailView: View {
         let event: Event
-        @State private var message: String = ""
+        @State private var isLiked: Bool = false
 
         var body: some View {
             ScrollView {
-                VStack {
-                    Text(event.name)
-                        .font(.title)
-                        .padding()
-
+                VStack(alignment: .center, spacing: 16) {
+                   
                     URLImage(URL(string: event.image)!) { image in
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .padding()
+                            .cornerRadius(16)
                             .shadow(radius: 4)
                     }
+                    .frame(height: 200) // Adjust the height based on your design preference
 
-                    Text("Description: \(event.description)")
-                        .font(.body)
+                    Text(event.name) // Display title below the image
+                        .font(.headline)
+                        .foregroundColor(.primary)
                         .padding()
 
-                    TextField("Enter your message", text: $message)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
+                    HStack {
+                        Image(systemName: isLiked ? "heart.fill" : "heart")
+                            .font(.system(size: 20))
+                            .foregroundColor(isLiked ? Color.red : Color.gray)
+                            .onTapGesture {
+                                isLiked.toggle()
+                            }
 
+                        Text("Date: \(event.date)")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+
+                        Spacer()
+
+                        Text("Location: \(event.location)")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                    }
+                    .padding(.horizontal)
+
+                    // Book Button
                     Button(action: {
-                        // Handle send button action
-                        // You can access the message using self.message
+                        // Add your action for booking
                     }) {
-                        Text("Send")
+                        Text("Book")
                             .font(.headline)
                             .foregroundColor(.white)
                             .padding()
@@ -138,12 +205,31 @@ struct MyEventsView: View {
                             .cornerRadius(10)
                     }
                     .padding()
+
+                    Divider() // Add a divider for separation
+
+                    Text("Event Details")
+                        .font(.headline)
+                        .padding(.bottom, 8)
+
+                    Text("Name: \(event.name)")
+                        .font(.body)
+                        .foregroundColor(.primary)
+
+                    Text("Date: \(event.date)")
+                        .font(.body)
+                        .foregroundColor(.primary)
+
+                    Text("Location: \(event.location)")
+                        .font(.body)
+                        .foregroundColor(.primary)
                 }
                 .padding()
             }
             .navigationBarTitle(Text("Event Details"), displayMode: .inline)
         }
     }
+
 
     func fetchEvents() {
         guard let url = URL(string: "http://localhost:5001/event") else {
