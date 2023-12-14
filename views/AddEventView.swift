@@ -66,7 +66,7 @@ struct AddEventView: View {
             if let imageData = eventImage?.jpegData(compressionQuality: 0.5) {
                 multipartFormData.append(imageData, withName: "image", fileName: "image.jpg", mimeType: "image/jpeg")
             }
-        }, to: "http://localhost:5001/event/create")
+        }, to: "http://localhost:5001/event/store")
         .response { response in
             if let error = response.error {
                 print("Error: \(error)")
